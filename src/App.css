@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+.Age {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Age_Child {
+  width: 50%;
+  background-color: #6b7380;
+  border-radius: 5px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 40px;
+}
+.header {
+  display: block;
+  width: 50%;
+  font-family: Georgia, serif;
+}
+.result {
+  display: block;
+  width: 50%;
+  font-family: sans-serif;
+}
+.Birthday_ {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100px;
+  width: 80%;
 }
 
-.App-link {
-  color: #61dafb;
+.Birthday_input {
+  border-radius: 5px;
+  border: 0;
+  width: 100%;
+  padding: 14px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Birthday_input:focus {
+  outline: none;
+}
+.label_ {
+  color: #fff !important;
+}
+.button_parent {
+  display: flex;
+  align-items: center;
+  width: 38%;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.buttons {
+  color: #fff !important;
+  text-transform: unset !important;
+}
+.calander {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.css-8v7him {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  margin-top: 0 !important;
+  margin-bottom: 8px;
+  padding-left: 24px;
+  padding-right: 12px;
+  max-height: 36px !important ;
+  min-height: 30px;
+  background-color: cornflowerblue !important;
+  align-items: center;
+}
+.css-s8aszu {
+  overflow: hidden;
+  min-width: 320px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+}
+html,
+body,
+#root,
+.App {
+  background: #dfdfdf;
 }
