@@ -22,7 +22,7 @@ const AgeCalculator = () => {
         milliseconds: "",
         minuts: ""
     })
-
+    console.log(birth);
     const changeBirthHandler = (e) => {
         setBirth(e.target.value)
     }
@@ -34,8 +34,8 @@ const AgeCalculator = () => {
     const hanldeCalculate = (date1, date2) => {
         setShow(true)
 
-        const a = moment(date1);
-        const b = moment(date2);
+        const a = moment(date1).isValid();
+        const b = moment(date2).isValid();
 
         const duration = moment.duration(b.diff(a));
         const hours = duration.asHours();
