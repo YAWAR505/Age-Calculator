@@ -100,3 +100,14 @@ body,
 .App {
   background: #dfdfdf;
 }
+.calculator_header {
+  background-color: blueviolet;
+  display: block;
+  width: 100%;
+  color: #fff;
+  padding: 15px 0;
+}
+.calculator_net {
+  margin: 0 auto;
+  width: 50%;
+}

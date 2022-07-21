@@ -22,20 +22,31 @@ const AgeCalculator = () => {
         milliseconds: "",
         minuts: ""
     })
-    console.log(birth);
+    console.log(birth.length);
+
     const changeBirthHandler = (e) => {
-        setBirth(e.target.value)
+        const target = e.target.value
+        const dateLength = e.target.value.length
+        if (dateLength <= 10) {
+            return setBirth(target)
+        }
     }
 
     const changeTodayHandler = (e) => {
-        setToday(e.target.value)
+        const target = e.target.value
+        const dateLength = e.target.value.length
+        if (dateLength <= 10) {
+            return setToday(target)
+        }
+
     }
 
     const hanldeCalculate = (date1, date2) => {
         setShow(true)
 
-        const a = moment(date1).isValid();
-        const b = moment(date2).isValid();
+        const a = moment(date1)
+        const b = moment(date2)
+
 
         const duration = moment.duration(b.diff(a));
         const hours = duration.asHours();
@@ -81,10 +92,13 @@ const AgeCalculator = () => {
         setTotalMonths('')
         setTotalDays('')
         setShow(false)
-
     }
+
     return (
         <div className="Age">
+            <div className="calculator_header">
+                <h1 className='calculator_net'>Calculator.net</h1>
+            </div>
             <h1 className="header">Age Calculator</h1>
             {
                 show ? <div className='result'>
@@ -108,7 +122,9 @@ const AgeCalculator = () => {
                                 displayStaticWrapperAs="desktop"
 
                                 onChange={(newValue) => {
+
                                     setBirth(newValue);
+
                                 }}
                                 disabled={true}
                             />
@@ -132,18 +148,48 @@ const AgeCalculator = () => {
                     <label className="label_" htmlFor="birth">
                         Enter Birthday
                     </label>
-                    <input value={birth.length > 0 ? birth : today} onChange={changeBirthHandler} type="date" name="birth" id="birth" className="Birthday_input" placeholder="Birthday" />
+                    <input
+                        value={birth.length > 0 ? birth : today}
+                        onChange={changeBirthHandler}
+                        type="date"
+                        name="birth"
+                        id="birth"
+                        className="Birthday_input"
+                        placeholder="Birthday"
+                    />
                 </div>
                 <div className='Birthday_'>
                     <label className="label_" htmlFor="today">
                         Today
                     </label>
-                    <input value={today} onChange={changeTodayHandler} type="date" name="today" id="today" className="Birthday_input" placeholder="Today" />
+                    <input
+                        value={today}
+                        onChange={changeTodayHandler}
+                        type="date"
+                        name="today"
+                        id="today"
+                        className="Birthday_input"
+                        placeholder="Today"
+                    />
 
                 </div>
                 <div className='button_parent'>
-                    <Button className='buttons' variant='outlined' style={{ backgroundColor: "#28A745" }} onClick={() => hanldeCalculate(birth, today)}>Calculate</Button>
-                    <Button className='buttons' variant='outlined' style={{ backgroundColor: "#DC3545" }} onClick={hanldeReset}>Reset</Button>
+                    <Button
+                        className='buttons'
+                        variant='outlined'
+                        style={{ backgroundColor: "#28A745" }}
+                        onClick={() => hanldeCalculate(birth, today)}
+                    >
+                        Calculate
+                    </Button>
+                    <Button
+                        className='buttons'
+                        variant='outlined'
+                        style={{ backgroundColor: "#DC3545" }}
+                        onClick={hanldeReset}
+                    >
+                        Reset
+                    </Button>
                 </div>
 
 
