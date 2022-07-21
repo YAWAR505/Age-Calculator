@@ -8,7 +8,7 @@
 }
 .Age_Child {
   width: 50%;
-  background-color: #6b7380;
+  background-color: #eeeeee;
   border-radius: 5px;
   height: 300px;
   display: flex;
@@ -45,13 +45,13 @@
   outline: none;
 }
 .label_ {
-  color: #fff !important;
+  color: #000 !important;
 }
 .button_parent {
   display: flex;
   align-items: center;
-  width: 38%;
-  justify-content: space-between;
+  width: 40%;
+  justify-content: space-around;
   margin-top: 20px;
 }
 .buttons {
@@ -98,7 +98,7 @@ html,
 body,
 #root,
 .App {
-  background: #dfdfdf;
+  background: #fdfdfd;
 }
 .calculator_header {
   background-color: blueviolet;

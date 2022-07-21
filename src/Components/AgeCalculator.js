@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import moment from 'moment';
 import React, { useState } from 'react';
 import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
@@ -102,6 +102,7 @@ const AgeCalculator = () => {
             <h1 className="header">Age Calculator</h1>
             {
                 show ? <div className='result'>
+                    <Typography variant='h3' backgroundColor="#28A745" color="#fff" fontFamily={'Georgia, serif'} paddingX="10px">Result</Typography>
                     <h2>Age:</h2>
                     <h4>{!totalYears ? 0 : totalYears} Years {!totalMonths ? 0 : totalMonths} Months {!totalDays ? 0 : totalDays} Days</h4>
                     <h4>or {parseInt(durations.asMonths)} Months {!totalDays ? 0 : totalDays} Days</h4>
@@ -117,27 +118,18 @@ const AgeCalculator = () => {
                             <StaticDatePicker
                                 value={birth}
                                 openTo="day"
-
                                 showToolbar={false}
                                 displayStaticWrapperAs="desktop"
+                            // shouldDisableDate={() => setBirth()}
 
-                                onChange={(newValue) => {
 
-                                    setBirth(newValue);
-
-                                }}
-                                disabled={true}
                             />
                             <StaticDatePicker
                                 value={today}
                                 openTo="day"
                                 showToolbar={false}
                                 displayStaticWrapperAs="desktop"
-
-                                onChange={(newValue) => {
-                                    setToday(newValue);
-                                }}
-                                disabled={true}
+                            // shouldDisableDate={() => setToday()}
                             />
                         </div>
                     </LocalizationProvider>
@@ -174,22 +166,25 @@ const AgeCalculator = () => {
 
                 </div>
                 <div className='button_parent'>
-                    <Button
-                        className='buttons'
-                        variant='outlined'
-                        style={{ backgroundColor: "#28A745" }}
-                        onClick={() => hanldeCalculate(birth, today)}
-                    >
-                        Calculate
-                    </Button>
-                    <Button
-                        className='buttons'
-                        variant='outlined'
-                        style={{ backgroundColor: "#DC3545" }}
-                        onClick={hanldeReset}
-                    >
-                        Reset
-                    </Button>
+                    {
+                        !show ? <Button
+                            className='buttons'
+                            variant='outlined'
+                            style={{ backgroundColor: "#28A745" }}
+                            onClick={() => hanldeCalculate(birth, today)}
+                        >
+                            Calculate
+                        </Button> : <Button
+                            className='buttons'
+                            variant='outlined'
+                            style={{ backgroundColor: "#DC3545" }}
+                            onClick={hanldeReset}
+                        >
+                            Reset
+                        </Button>
+                    }
+
+
                 </div>
 
 
