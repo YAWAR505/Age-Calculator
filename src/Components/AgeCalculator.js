@@ -103,7 +103,7 @@ const AgeCalculator = () => {
             <h1 className="header">Age Calculator</h1>
             {
                 show ? <div className='result'>
-                    <Typography variant='h3' backgroundColor="#28A745" color="#fff" fontFamily={'Georgia, serif'} paddingX="10px">Result</Typography>
+                    <Typography variant='h3' backgroundColor="#28A745" color="#fff" fontFamily={'Georgia, serif'} paddingX="10px" borderRadius={"5px"}>Result</Typography>
                     <h2>Age:</h2>
                     <h4>{!totalYears ? 0 : totalYears} Years {!totalMonths ? 0 : totalMonths} Months {!totalDays ? 0 : totalDays} Days</h4>
                     <h4>or {parseInt(durations.asMonths)} Months {!totalDays ? 0 : totalDays} Days</h4>
