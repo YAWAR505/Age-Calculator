@@ -7,7 +7,7 @@
   align-items: center;
 }
 .Age_Child {
-  width: 50%;
+  width: 60%;
   background-color: #eeeeee;
   border-radius: 5px;
   height: 300px;
@@ -19,12 +19,12 @@
 }
 .header {
   display: block;
-  width: 50%;
+  width: 60%;
   font-family: Georgia, serif;
 }
 .result {
   display: block;
-  width: 50%;
+  width: 60%;
   font-family: sans-serif;
 }
 .Birthday_ {
@@ -110,5 +110,5 @@ body,
 }
 .calculator_net {
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
 }

@@ -1,4 +1,4 @@
-import { Button, FormControlLabel, Switch, TextField, Typography } from '@material-ui/core';
+import { Button, FormControlLabel, Grid, Switch, TextField, Typography } from '@material-ui/core';
 import moment from 'moment';
 import React, { useState } from 'react';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -117,8 +117,8 @@ const AgeCalculator = () => {
                         style={{
                             position: "sticky",
                             top: "0",
-                            backgroundColor: "white",
-                            zIndex: 2
+                            zIndex: 2,
+                            marginBottom: '15px'
                         }}
                     >
                         <FormControlLabel
@@ -134,8 +134,10 @@ const AgeCalculator = () => {
 
                     </div>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <div className='calander'>
-                            <div>
+
+
+                        <Grid container>
+                            <Grid xs={12} md={6}>
                                 <h4 style={{ margin: "0", backgroundColor: "bisque", padding: "8px", borderRadius: "5px" }}>From</h4>
                                 <StaticDatePicker
                                     value={birth}
@@ -149,8 +151,10 @@ const AgeCalculator = () => {
                                     displayStaticWrapperAs="desktop"
 
                                 />
-                            </div>
-                            <div>
+                            </Grid>
+
+                            <Grid xs={12} md={6}>
+
                                 <h4 style={{ margin: "0", backgroundColor: "bisque", padding: "8px", borderRadius: "5px" }}>To</h4>
                                 <StaticDatePicker
                                     value={today}
@@ -163,8 +167,8 @@ const AgeCalculator = () => {
                                     renderInput={(params) => <TextField {...params} />}
                                     {...{ disabled: isDisabled, readOnly: isReadOnly }}
                                 />
-                            </div>
-                        </div>
+                            </Grid>
+                        </Grid>
                     </LocalizationProvider>
                 </div> : null
             }
