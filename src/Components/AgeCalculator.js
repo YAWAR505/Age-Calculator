@@ -1,9 +1,9 @@
-import { Button, Typography } from '@material-ui/core';
+import { Button, FormControlLabel, Switch, TextField, Typography } from '@material-ui/core';
 import moment from 'moment';
 import React, { useState } from 'react';
-import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
-import StaticDatePicker from "@material-ui/lab/StaticDatePicker";
-import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 
 const AgeCalculator = () => {
@@ -13,6 +13,8 @@ const AgeCalculator = () => {
     const [totalYears, setTotalYears] = useState(0)
     const [totalMonths, setTotalMonths] = useState(0)
     const [totalDays, setTotalDays] = useState(0)
+    const [isDisabled, setIsDisabled] = useState(true);
+    const [isReadOnly] = useState(false);
     const [durations, setDurations] = useState({
         hours: "",
         asDays: "",
@@ -22,7 +24,6 @@ const AgeCalculator = () => {
         milliseconds: "",
         minuts: ""
     })
-    console.log(birth.length);
 
     const changeBirthHandler = (e) => {
         const target = e.target.value
@@ -112,25 +113,57 @@ const AgeCalculator = () => {
                     <h4>or {durations.minuts} Minutes  </h4>
                     <h4>or {durations.secounds} Seconds</h4>
                     <h4>or {durations.milliseconds} Milliseconds</h4>
+                    <div
+                        style={{
+                            position: "sticky",
+                            top: "0",
+                            backgroundColor: "white",
+                            zIndex: 2
+                        }}
+                    >
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={isDisabled}
+                                    onChange={(event) => setIsDisabled(event.target.checked)}
+                                    name="disabled"
+                                />
+                            }
+                            label="disabled"
+                        />
 
+                    </div>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <div className='calander'>
-                            <StaticDatePicker
-                                value={birth}
-                                openTo="day"
-                                showToolbar={false}
-                                displayStaticWrapperAs="desktop"
-                            // shouldDisableDate={() => setBirth()}
+                            <div>
+                                <h4 style={{ margin: "0", backgroundColor: "bisque", padding: "8px", borderRadius: "5px" }}>From</h4>
+                                <StaticDatePicker
+                                    value={birth}
+                                    openTo="day"
+                                    showToolbar={false}
+                                    onChange={(newValue) => {
+                                        setBirth(newValue);
+                                    }}
+                                    renderInput={(params) => <TextField {...params} />}
+                                    {...{ disabled: isDisabled, readOnly: isReadOnly }}
+                                    displayStaticWrapperAs="desktop"
 
-
-                            />
-                            <StaticDatePicker
-                                value={today}
-                                openTo="day"
-                                showToolbar={false}
-                                displayStaticWrapperAs="desktop"
-                            // shouldDisableDate={() => setToday()}
-                            />
+                                />
+                            </div>
+                            <div>
+                                <h4 style={{ margin: "0", backgroundColor: "bisque", padding: "8px", borderRadius: "5px" }}>To</h4>
+                                <StaticDatePicker
+                                    value={today}
+                                    openTo="day"
+                                    showToolbar={false}
+                                    onChange={(newValue) => {
+                                        setToday(newValue);
+                                    }}
+                                    displayStaticWrapperAs="desktop"
+                                    renderInput={(params) => <TextField {...params} />}
+                                    {...{ disabled: isDisabled, readOnly: isReadOnly }}
+                                />
+                            </div>
                         </div>
                     </LocalizationProvider>
                 </div> : null
